@@ -18,6 +18,14 @@ class PharmacyController extends Controller
         $pharmacies = Pharmacy::all();
 
         foreach($pharmacies as $pharmacy) {
+
+            if(is_null($pharmacy)) {
+                return [
+                    "data"=>"null",
+                    "message"=>"No pharmacies found"
+                ];
+            }
+
             $providedCoordinates = $lat .",". $long;
             $pharmacyCoordinates = $pharmacy->latitude .",". $pharmacy->longitude;
             $pharmacyDistance = $this->getRoadDirectionsDistanceFromGoogle($providedCoordinates,$pharmacyCoordinates);
@@ -26,6 +34,13 @@ class PharmacyController extends Controller
                 $nearestPharmacyDistance = $pharmacyDistance;
                 $nearestPharmacy = $pharmacy;
             }
+        }
+
+        if(is_null($nearestPharmacy)) {
+            return [
+                "data"=>null,
+                "message"=>"No pharmacies found"
+            ];
         }
 
         return [

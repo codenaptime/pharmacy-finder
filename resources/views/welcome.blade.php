@@ -45,7 +45,7 @@
             }
 
             .title {
-                font-size: 84px;
+                font-size: 3rem;
             }
 
             .links > a {
@@ -82,21 +82,8 @@
             <div class="content">
                 <div class="title m-b-md">
                     <h1>Pharmacy finder</h1>
+                    <p>To query api, call route <pre>/api/pharmacy/{latitude}/{longitude}</pre></p>
                 </div>
-
-                <form action="api/pharmacy/" method="GET">
-                <fieldset>
-                    <legend>Enter the latitude and longitude to find the nearest pharmacy</legend>
-                    <label for="latitude-input" value="Enter the latitude coordinate">
-                        Enter the latitude coordinate:
-                    </label>
-                    <input type="text" id="latitude-input" />
-                    <label for="longitude-input" value="Enter the longitude coordinate">
-                        Enter the longitude coordinate:
-                    </label>
-                    <input type="text" id="longitude-input" />
-                </fieldset>
-                </form>
             </div>
         </div>
     </body>
